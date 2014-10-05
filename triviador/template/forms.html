@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>formulario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta content="" name="description" />
+	<meta content="" name="author" />
+	<link rel="shortcut icon" type="image/x-icon" href="{{STATIC_URL}}images/logo1.ico" />
+    <link href="{{STATIC_URL}}bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}css/styles.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}css/forms.css" rel="stylesheet">
+    <link rel="{{STATIC_URL}}stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+  	<div class="header">
+	     <div class="container">
+	        <div class="row">
+	           <div class="col-md-5">
+	              <img src="{{STATIC_URL}}images/logo.png" alt="" />
+	           </div>
+	        </div>
+	     </div>
+	</div>
+
+    <div class="page-content">
+        <div style="background-image:url(images/fondo1.jpg); background-position:left top;">
+    	<div class="row">
+		  <div class="col-md-2">
+		  	<div class="sidebar content-box" style="display: block;">
+                <ul class="nav">
+                    <li><a href="index.html"><i class="glyphicon glyphicon-home"></i> Inicio</a></li>
+                    <li><a href="calendar.html"><i class="glyphicon glyphicon-calendar"></i> Jugar</a></li>
+                    <li><a href="perfil.html"><i class="glyphicon glyphicon-pencil"></i> Perfil_Usuario</a></li>
+                    <li class="submenu">
+                         <a href="#">
+                            <i class="glyphicon glyphicon-list"></i>Administrador
+                            <span class="caret pull-right"></span>
+                         </a>
+                         <ul>
+                            <li><a href="usuario_denun.html">Login</a></li>
+                        </ul>
+                    </li>
+                </ul>
+             </div>
+		  </div>
+		  <div class="col-md-10">
+		  <div class="col col-sm-6">
+				<img class="img-responsive" src="{{STATIC_URL}}images/Acta.jpg" alt="">
+			</div>		
+ 			<div class="row">
+					<div class="col-md-6">
+						<div class="content-box-large">
+			  				<div class="panel-heading">
+								<div class="panel-title">Registro de Nuevo Usuario</div>
+							</div>
+			  				<div class="panel-body">	
+										{% block content %}
+										{% endblock %}
+								</div>						
+			  				</div>
+			  				
+			  			</div>
+					</div>				
+			</div>
+			</div>
+		</div>
+		</div>
+	</div>
+    <footer>
+         <div class="container">
+         
+            <div class="copy text-center">
+               Triviador Bolivia <a href='#'>Website</a>
+            </div>
+            
+         </div>
+      </footer>
+    
+    <script src="{{STATIC_URL}}assets/plugins/jquery-2.0.3.min.js"></script>
+    <script src="{{STATIC_URL}}assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{STATIC_URL}}assets/plugins/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+       <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="{{STATIC_URL}}bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{STATIC_URL}}js/custom.js"></script>
+    <script src="{{STATIC_URL}}js/forms.js"></script>
+  </body>
+</html>
