@@ -3,10 +3,10 @@
   <head>
     <title>Calendario</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css" rel="stylesheet" media="screen">
-    <link rel="shortcut icon" type="image/x-icon" href="images/logo1.ico" />
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}https://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css" rel="stylesheet" media="screen">
+    <link rel="shortcut icon" type="image/x-icon" href="{{STATIC_URL}}images/logo1.ico" />
+    <link href="{{STATIC_URL}}bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}css/styles.css" rel="stylesheet">
   </head>
   <body>
   	<div class="header">
@@ -14,7 +14,7 @@
 	        <div class="row">
 	           <div class="col-md-5">	           
 	              <div class="col-md-5">
-	              	 <img src="images/logo.png" alt="" />
+	              	 <img src="{{STATIC_URL}}images/logo.png" alt="" />
 	           	  </div>
 	           </div>
 	        </div>
@@ -26,16 +26,16 @@
 		  <div class="col-md-2">
 		  	<div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
-                    <li><a href="index.html"><i class="glyphicon glyphicon-home"></i> Inicio</a></li>
+                    <li><a href="/"><i class="glyphicon glyphicon-home"></i> Inicio</a></li>
                     <li><a href="http://www.facebook.com"><i class="glyphicon glyphicon-stats"></i> Facebook</a></li>
-                    <li><a href="forms.html"><i class="glyphicon glyphicon-tasks"></i> Registro_usuario</a></li>
+                    <li><a href="/registro/"><i class="glyphicon glyphicon-tasks"></i> Registro_usuario</a></li>
                     <li class="submenu">
                          <a href="#">
-                            <i class="glyphicon glyphicon-list"></i> Administracion
+                            <i class="glyphicon glyphicon-list"></i> Usuario
                             <span class="caret pull-right"></span>
                          </a>
                          <ul>
-                            <li><a href="login.html">Login</a></li>
+                            <li><a href="/login/">Login</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -46,7 +46,7 @@
 		  				<div class="panel-body">
 		  					<div class="row">
                 <div class="col col-sm-6">
-                   <img src="images/portal_1.jpg" class="img-responsive">
+                   <img src="{{STATIC_URL}}images/portal_1.jpg" class="img-responsive">
                    <h4>!juega ya!.</h4>
                   </div> 
 		  					</div>
@@ -63,9 +63,9 @@
             </div>
          </div>
       </footer>
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="{{STATIC_URL}}https://code.jquery.com/jquery.js"></script>
+    <script src="{{STATIC_URL}}https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="{{STATIC_URL}}bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{STATIC_URL}}js/custom.js"></script>
   </body>
 </html>

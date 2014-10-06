@@ -1,11 +1,12 @@
-{% extends  "forms.html" %}
+{% extends  "perfil.html" %}
 
 {% block content %}
 	<div class=container"">
 		<div class="row">
 			<div class="col-xs-12">
-			<h2>Bienvenido{{ user.get_full_name }}</h2><br>
-			<h2>Ciudad : {{user.perfil.ciudad}}</h2>
+			<h2>Name_Usuario: {{ user.get_full_name }}</h2><br>
+			<h2>Ciudad_Usuario : {{user.perfil.ciudad}}</h2>
+			<h2> Avatar </h2>
 			<img src="/media/{{ user.perfil.avatar }}" alt="avatar">
 			</div>
 		</div>
