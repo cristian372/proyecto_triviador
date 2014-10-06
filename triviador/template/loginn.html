@@ -1,0 +1,18 @@
+{% extends  "usuario_denun.html" %}
+
+{% block content %}
+	<div class=container"">
+		<div class="row">
+			<div class="col-xs-12">
+			<form action="" method="post" class="form-signin">
+				<p class="text-muted text-center btn-block btn btn-primary btn-rect">
+                    Ingrese su nombre_usuario y contrasenia
+                </p>
+				{% csrf_token %}
+			 	{{ formulario.as_p }}
+			 <button type="submit" class="btn btn-primary">Ingresar</button>
+			</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}
