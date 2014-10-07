@@ -7,4 +7,5 @@ urlpatterns = patterns('',
     url(r'^logout/$', logout_view),
     url(r'^user/perfil/$', perfil_view),
     url(r'^user/active/$', user_active_view),
+    url(r'^/jugar/$', jugar_view)
 )

@@ -3,12 +3,16 @@
 {% block content %}
 	<div class=container"">
 		<div class="row">
-			<div class="col-xs-12">
-			<form action="" method="post" enctype="multipart/form-data">
-			 {% csrf_token %}
-			 {{ formulario.as_p }}
-			 <button type="submit" class="btn btn-primary">Active</button>
-			</form>
+			<div class="col-xs-4"></div>
+			<div class="col-xs-4">			
+			{% load bootstrap3  %}
+				<form action="" method="post" enctype="multipart/form-data">
+				 {% csrf_token %}
+				 {% bootstrap_form formulario %}
+				 {% buttons %}
+				 	<button type="submit" class="btn btn-primary">Activacion</button>
+				 {% endbuttons %}
+				</form>
 			</div>
 		</div>
 	</div>

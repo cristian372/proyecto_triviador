@@ -3,15 +3,16 @@
 {% block content %}
 	<div class=container"">
 		<div class="row">
-			<div class="col-xs-12">
-			<form action="" method="post" class="form-signin">
-				<p class="text-muted text-center btn-block btn btn-primary btn-rect">
-                    Ingrese su nombre_usuario y contrasenia
-                </p>
-				{% csrf_token %}
-			 	{{ formulario.as_p }}
-			 <button type="submit" class="btn btn-primary">Ingresar</button>
-			</form>
+			<div class="col-xs-4"></div>
+			<div class="col-xs-4">			
+			{% load bootstrap3  %}
+				<form action="" method="post" class="form">
+				 {% csrf_token %}
+				 {% bootstrap_form formulario %}
+				 {% buttons %}
+				 	<button type="submit" class="btn btn-primary">Login</button>
+				 {% endbuttons %}
+				</form>
 			</div>
 		</div>
 	</div>

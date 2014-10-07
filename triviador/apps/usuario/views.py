@@ -18,7 +18,7 @@ def registro_view(request):
 			usuario.is_active=False
 			usuario.save()
 			perfil=Perfil.objects.create(user=usuario)
-			return HttpResponse("Registrado")
+			return HttpResponseRedirect("/login/")
 	else:
 		formulario_registro=fusuario()
 	return render_to_response("registro_user.html",{'formulario':formulario_registro},context_instance=RequestContext(request))
@@ -70,3 +70,6 @@ def user_active_view(request):
 			return render_to_response("activar.html", {"formulario":formulario}, context_instance=RequestContext(request))
 	else:
 			return HttpResponseRedirect("/login/")
+
+def jugar_view(request):
+	return render_to_response("calendar.html", context_instance=RequestContext(request))
