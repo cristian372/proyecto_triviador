@@ -87,6 +87,34 @@ def modificar_perfil(request):
 	else:
 		return HttpResponseRedirect("/login/")
 
+
 def jugar_view(request):
 	return render_to_response("calendar.html", context_instance=RequestContext(request))
 
+def listar_usuario(request):
+	u=request.user
+	usuario=User.objects.all()
+	return render_to_response("listar_usuarios.html",{'usuarios':usuario},context_instance=RequestContext(request))
+
+def registro_admin(request):
+	if request.method=="POST":
+		formulario_r=fadmin(request.POST)
+		if formulario_r.is_valid():
+			usuario=request.POST['username']
+			formulario_r.save()
+			anio=request.POST['fecha_nacimiento_year']
+			mes=request.POST['fecha_nacimiento_month']
+			dia=request.POST['fecha_nacimiento_day']
+			fecha_nacimiento=anio+"_"+mes+"_"+dia
+			imagen=request.FILES['imagen']
+			sexo=request.POST['sexo']
+			ci=request.POST['si']
+			telefono=request.POST['telefono']
+			usuario_nuevo=User.objects.get(username=usuario)
+			usuario_nuevo.is_active=False
+			usuario_nuevo.save()
+			perfil=Perfil.objects.create(user=usuario_nuevo,fecha_nacimiento=fecha_nacimiento,imagen=imagen,sexo=sexo,ci=ci,telefono=telefono)
+			return HttpResponseRedirect("/login/")
+	else:
+		formulario_r=fadmin()
+	return render_to_response("registro_user.html",{'formulario':formulario_re},context_instance=RequestContext(request))

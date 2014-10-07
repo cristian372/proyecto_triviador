@@ -2,10 +2,13 @@
 
 from django.forms import ModelForm
 from django import forms
+from django.forms.extras.widgets import SelectDateWidget
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import *
 
+lista_anios = range(2014,1900,-1)
+CHOICES = (('1', 'Hombre',), ('2', 'Mujer',))
 class fperfil(ModelForm):
 		class Meta:
 			model=Perfil
@@ -33,3 +36,11 @@ class fperfil_modificar(ModelForm):
 		class Meta:
 			model=Perfil
 			exclude=['user']
+
+
+class fadmin(ModelForm):
+	fecha_nacimiento=forms.DateField(widget=SelectDateWidget(years=lista_anios))
+	sexo=forms.ChoiceField(widget=forms.RadioSelect, choices=CHOICES)
+	class Meta:
+		model=Admin
+		exclude = ['user']
