@@ -92,29 +92,28 @@ def jugar_view(request):
 	return render_to_response("calendar.html", context_instance=RequestContext(request))
 
 def listar_usuario(request):
-	u=request.user
-	usuario=User.objects.all()
-	return render_to_response("listar_usuarios.html",{'usuarios':usuario},context_instance=RequestContext(request))
+	usuarios=User.objects.filter(is_superuser=False)
+	return render_to_response("listar_usuarios.html",{'usuarios':usuarios},context_instance=RequestContext(request))
 
 def registro_admin(request):
-	if request.method=="POST":
-		formulario_r=fadmin(request.POST)
-		if formulario_r.is_valid():
+	if request.method=='POST':
+		formulario=UserCreationForm(request.POST)
+		formulario2=fadmin(request.POST,request.FILES)
+		if formulario.is_valid() and formulario2.is_valid():
 			usuario=request.POST['username']
-			formulario_r.save()
+			formulario.save()
 			anio=request.POST['fecha_nacimiento_year']
 			mes=request.POST['fecha_nacimiento_month']
 			dia=request.POST['fecha_nacimiento_day']
-			fecha_nacimiento=anio+"_"+mes+"_"+dia
+			fecha_nacimiento=anio+"-"+mes+"-"+dia
 			imagen=request.FILES['imagen']
 			sexo=request.POST['sexo']
-			ci=request.POST['si']
+			ci=request.POST['ci']
 			telefono=request.POST['telefono']
-			usuario_nuevo=User.objects.get(username=usuario)
-			usuario_nuevo.is_active=False
-			usuario_nuevo.save()
-			perfil=Perfil.objects.create(user=usuario_nuevo,fecha_nacimiento=fecha_nacimiento,imagen=imagen,sexo=sexo,ci=ci,telefono=telefono)
-			return HttpResponseRedirect("/login/")
+			nuevo_usuario=User.objects.get(username=usuario)
+			perfil=Admin.objects.create(user=nuevo_usuario,fecha_nacimiento=fecha_nacimiento,imagen=imagen,sexo=sexo,ci=ci,telefono=telefono)
+			return HttpResponseRedirect("/login/"+str(nuevo_usuario.id)+"/")
 	else:
-		formulario_r=fadmin()
-	return render_to_response("registro_user.html",{'formulario':formulario_re},context_instance=RequestContext(request))
+		formulario=UserCreationForm()
+		formulario2=fadmin()
+	return render_to_response('registro_admin.html',{'formulario':formulario,'formulario2':formulario2},context_instance=RequestContext(request))

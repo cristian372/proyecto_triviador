@@ -10,4 +10,5 @@ urlpatterns = patterns('',
     url(r'^user/active/$', user_active_view),    
     url(r'^jugar/$', jugar_view),
     url(r'^listar/$', listar_usuario),
+    url(r'^lado_admin/$', registro_admin),
 )

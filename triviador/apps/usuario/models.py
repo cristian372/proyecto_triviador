@@ -11,9 +11,9 @@ class Perfil(models.Model):
 class Admin(models.Model):
 	user = models.ForeignKey(User, unique=True)
 	fecha_nacimiento=models.DateField()
-	imagen =models.ImageField(null=True,upload_to='img_usuario')
+	imagen =models.ImageField(null=True, upload_to="img_user")
 	sexo = models.IntegerField(null=False)
-	ci=models.IntegerField(null=True,unique=True)
+	ci=models.IntegerField(null=True, unique=True)
 	telefono = models.IntegerField(null=True)
 
 		
