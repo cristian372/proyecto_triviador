@@ -11,4 +11,6 @@ urlpatterns = patterns('',
     url(r'^jugar/$', jugar_view),
     url(r'^listar/$', listar_usuario),
     url(r'^lado_admin/$', registro_admin),
+    url(r'^login_admin/$', login_admin),
+    url(r'^user/admin/$', perfil_admin),
 )

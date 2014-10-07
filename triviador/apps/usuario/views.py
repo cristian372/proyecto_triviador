@@ -112,8 +112,27 @@ def registro_admin(request):
 			telefono=request.POST['telefono']
 			nuevo_usuario=User.objects.get(username=usuario)
 			perfil=Admin.objects.create(user=nuevo_usuario,fecha_nacimiento=fecha_nacimiento,imagen=imagen,sexo=sexo,ci=ci,telefono=telefono)
-			return HttpResponseRedirect("/login/"+str(nuevo_usuario.id)+"/")
+			return HttpResponseRedirect("/login_admin/")
 	else:
 		formulario=UserCreationForm()
 		formulario2=fadmin()
 	return render_to_response('registro_admin.html',{'formulario':formulario,'formulario2':formulario2},context_instance=RequestContext(request))
+
+def login_admin(request):
+	if request.method=="POST":
+		formulario=AuthenticationForm(request.POST)
+		if formulario.is_valid:
+			usuario=request.POST['username']
+			contrasena=request.POST['password']
+			acceso=authenticate(username=usuario, password=contrasena)
+			if acceso is not None:
+					login(request, acceso)
+					return HttpResponseRedirect("/user/admin/")
+		else:
+			return HttpResponse("Error en los datos")
+	else:
+		formulario=AuthenticationForm()
+	return render_to_response("login_admin.html", {"formulario":formulario}, context_instance=RequestContext(request))
+
+def perfil_admin(request):
+	return render_to_response("perfil_admin.html",{},context_instance=RequestContext(request))
