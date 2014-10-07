@@ -5,15 +5,15 @@
 		<div class="row">
 			<div class="col-xs-12">
 				{% load bootstrap3  %}
-				<h2>Nombre_Completo : {{ user.get_full_name }}</h2><br>
-				<h2>Nick : {{user.username}}</h2>
-				<h2>Ciudad : {{user.perfil.ciudad}}</h2><br>
-				<h2>Email : {{user.email}}</h2>
-				<h2> Avatar </h2>
-				<img src="/media/{{ user.perfil.avatar }}" alt="avatar">
-				<ul>
-	                <li><a href="/perfil/modificar/">Modificar perfil</a></li>
-	            </ul>
+				<h3>Nombre_Completo : {{ user.get_full_name }}</h2><br>
+				<h3>Nick : {{user.username}}</h2><br>
+				<h3>Ciudad : {{user.perfil.ciudad}}</h2><br>
+				<h3>Email : {{user.email}}</h2>
+				<h3> Avatar </h2>
+				<img src="/media/{{ user.perfil.avatar }}" alt="avatar"><br><br>           
+            	<div class="action">
+			            <a class="btn btn-default" href="/perfil/modificar/">Modificar</a>
+			    </div> 
 			</div>
 		</div>
 	</div>

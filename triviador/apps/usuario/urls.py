@@ -8,5 +8,5 @@ urlpatterns = patterns('',
     url(r'^user/perfil/$', perfil_view),
     url(r'^perfil/modificar/$',modificar_perfil),
     url(r'^user/active/$', user_active_view),    
-    url(r'^/jugar/$', jugar_view),
+    url(r'^jugar/$', jugar_view),
 )
