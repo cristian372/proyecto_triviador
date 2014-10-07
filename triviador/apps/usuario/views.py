@@ -71,5 +71,22 @@ def user_active_view(request):
 	else:
 			return HttpResponseRedirect("/login/")
 
+def modificar_perfil(request):
+	if request.user.is_authenticated():
+		u=request.user
+		usuario=User.objects.get(username=u)
+		perfil=Perfil.objects.get(user=usuario)
+		if request.method=='POST':
+			formulario=fperfil_modificar(request.POST,request.FILES,instance=perfil)
+			if formulario.is_valid():
+				formulario.save()
+				return HttpResponseRedirect("/user/perfil/")
+		else:
+			formulario=fperfil_modificar(instance=perfil)
+			return render_to_response('modificar_perfil.html',{'formulario':formulario},context_instance=RequestContext(request))
+	else:
+		return HttpResponseRedirect("/login/")
+
 def jugar_view(request):
 	return render_to_response("calendar.html", context_instance=RequestContext(request))
+
