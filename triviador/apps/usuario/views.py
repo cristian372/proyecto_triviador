@@ -92,7 +92,7 @@ def jugar_view(request):
 	return render_to_response("calendar.html", context_instance=RequestContext(request))
 
 def listar_usuario(request):
-	usuarios=User.objects.filter(is_superuser=False)
+	usuarios=User.objects.all()
 	return render_to_response("listar_usuarios.html",{'usuarios':usuarios},context_instance=RequestContext(request))
 
 def registro_admin(request):

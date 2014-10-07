@@ -6,25 +6,25 @@
   <meta name="keywords" content="website keywords, website keywords" />
   <meta http-equiv="content-type" content="text/html; charset=windows-1252" />  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="style/style.css" />
-  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}style/style.css" />
+  <link href="{{STATIC_URL}}bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{STATIC_URL}}css/styles.css" rel="stylesheet">
 </head>
 <body>
   <div id="main">
     <div id="header">
     <div class="col-md-5">
-                <img src="images/logo.png" alt="" />
+                <img src="{{STATIC_URL}}images/logo.png" alt="" />
              </div>
       <div id="menubar">
         <ul id="menu">
-          <li><a href="examples.html">Partidas</a></li>
-          <li><a href="control.html">Control Usuarios</a></li>
-          <li><a href="index.html">Salir</a></li>
+          <li><a href="/jugar/">Partidas</a></li>
+          <li><a href="/listar/">Control Usuarios</a></li>
+          <li><a href="/">Salir</a></li>
         </ul>
       </div>
     </div>
-    <div style="background-image:url(images/fondo1.jpg); background-position:left top;">
+    <div style="background-image:url({{STATIC_URL}}images/fondo1.jpg); background-position:left top;">
     <div id="content_header"></div>
     <div id="site_content">
       <div class="sidebar">
@@ -39,16 +39,12 @@
       </div>
       <div id="content">
         <h2>Bienvenido al sub sistema Administrador</h2>
-        <p>En esta parte del sistema usted podra hacer el control de usuarios y el control del juego</p>
-        <p>Usted esta ah cargo de: <strong>Usuarios</strong> y <strong>Denuncias</strong>,..........</p>
-        <h2>Lo que se realiza en esta parte: </h2>
-        <ul>
-          <li>Controlar usuarios</li>
-          <li>Historial de usuarios</li>
-          <li>Banear Usuarios</li>
-        </ul>
+        <div class="panel-body">  
+                    {% block content %}
+                    {% endblock %}
+        </div>
         <div class="col col-sm-6">
-                   <img src="images/triviador1.jpg" class="img-responsive">
+                   <img src="{{STATIC_URL}}images/triviador1.jpg" class="img-responsive">
                    <h4>!TRVIADOR ADMINISTRADOR.</h4>
         </div> 
       </div>
