@@ -5,8 +5,14 @@
 		<div class="row">
 			<div class="col-xs-12">
 				{% load bootstrap3  %}
-				<h3>Nick : {{user.username}}</h3><br>			
-			    </div> 
+				<h3>Nick : {{user.username}}</h3><br>
+				<h3>Nick : {{username.Admin.ci}}</h3><br>
+				<h3>C.I. : {{user.Admin.ci}}</h3><br>
+				<h3>Email : {{user.perfil.telefono}}</h3>
+				<h3>Fecha de nacimiento : {{user.fecha_nacimiento}}</h3>
+				<h3> Avatar </h3>
+				<li>Imagen :<img src="/media/{{perfil.imagen}}" width="100px" height="100px" /></li>
+			</div> 
 			</div>
 		</div>
 	</div>

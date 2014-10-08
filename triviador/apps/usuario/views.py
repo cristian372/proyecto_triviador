@@ -135,4 +135,7 @@ def login_admin(request):
 	return render_to_response("login_admin.html", {"formulario":formulario}, context_instance=RequestContext(request))
 
 def perfil_admin(request):
-	return render_to_response("perfil_admin.html",{},context_instance=RequestContext(request))
+	usuario=request.user
+	u=User.objects.get(username=usuario)
+	a=Admin.objects.get(user=u)
+	return render_to_response("perfil_admin.html",{'a':a},context_instance=RequestContext(request))
