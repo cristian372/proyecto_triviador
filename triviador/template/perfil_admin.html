@@ -6,14 +6,15 @@
 			<div class="col-xs-12">
 				{% load bootstrap3  %}
 				<h3>Nick : {{user.username}}</h3><br>
-				<h3>Nick : {{username.Admin.ci}}</h3><br>
-				<h3>C.I. : {{user.Admin.ci}}</h3><br>
-				<h3>Email : {{user.perfil.telefono}}</h3>
-				<h3>Fecha de nacimiento : {{user.fecha_nacimiento}}</h3>
-				<h3> Avatar </h3>
-				<li>Imagen :<img src="/media/{{perfil.imagen}}" width="100px" height="100px" /></li>
-			</div> 
+				<h3>C.I. : {{a.ci}}</h3>
+				{% if a.sexo == 1 %}
+                    <h3>Hombre</h3>
+                {% else %}
+                	<h3>mujer</h3>
+                {% endif %}
+				<h3>Fecha de nacimiento : {{a.fecha_nacimiento}}</h3>
+				<h3>Imagen : <img src="/media/{{a.imagen}}" width="100px" height="100px" /></h3>
 			</div>
-		</div>
+			</div>
 	</div>
 {% endblock %}
