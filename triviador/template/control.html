@@ -6,9 +6,8 @@
     <title>Control</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="layout" content="main"/>
-    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-    <script src="js/jquery/jquery-1.8.2.min.js" type="text/javascript" ></script>
-    <link href="css/customize-template.css" type="text/css" media="screen, projection" rel="stylesheet" />
+    <script src="{{STATIC_URL}}js/jquery/jquery-1.8.2.min.js" type="text/javascript" ></script>
+    <link href="{{STATIC_URL}}css/customize-template.css" type="text/css" media="screen, projection" rel="stylesheet" />
     <style>
     </style>
 </head>
@@ -47,7 +46,7 @@
             </div>
         </div>
         <section class="page container">
-            <div style="background-image:url(images/fondo2.jpg); background-position:left top;">
+            <div style="background-image:url({{STATIC_URL}}images/fondo2.jpg); background-position:left top;">
             <div class="row">
                 <div class="span4">
                     <div class="blockoff-right">
@@ -58,42 +57,7 @@
                                     <i class="icon-chevron-right pull-right"></i>
                                     <b>ver todos</b>
                                 </a>
-                            </li>
-                            
-                                <li>
-                                    <a href="#Person-1">
-                                        <i class="icon-chevron-right pull-right"></i>
-                                        John Doe
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="#Person-5">
-                                        <i class="icon-chevron-right pull-right"></i>
-                                        Steve Gunther
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="#Person-4">
-                                        <i class="icon-chevron-right pull-right"></i>
-                                        Patrick Hartwin
-                                    </a>
-                                </li>
-                            
-                                <li>
-                                    <a href="#Person-7">
-                                        <i class="icon-chevron-right pull-right"></i>
-                                        Sarah Mathews
-                                    </a>
-                                </li>                            
-                                <li>
-                                    <a href="#Person-2">
-                                        <i class="icon-chevron-right pull-right"></i>
-                                        Joe Reed
-                                    </a>
-                                </li>
-                                             
+                            </li>                                             
                         </ul>
                     </div>
                 </div>
@@ -101,167 +65,27 @@
                     <div id="Person-1" class="box">
                         <div class="box-header">
                             <i class="icon-user icon-large"></i>
-                            <h5>John Doe</h5>
+                            <h5>User</h5>
                         </div>
                         <div class="box-content box-table">
                         <table class="table table-hover tablesorter">
                             <thead>
                                 <tr>
-                                    <th>Casos atendidos</th>
-                                    <th>Puesto</th>
-                                    <th>Grado</th>
-                                    <th>Codigo</th>
+                                    <th>Nombre</th>
+                                    <th>Nick</th>
+                                    <th>Email</th>
+                                    <th>Avatar</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>2 Sandy Creek</td>
-                                    <td>Longely</td>
-                                    <td>NY</td>
-                                    <td>34009</td>
-                                </tr>
-                                <tr>
-                                    <td>3 Apple St</td>
-                                    <td>Korba</td>
-                                    <td>KY</td>
-                                    <td>40351</td>
-                                </tr>
-                                <tr>
-                                    <td>117 W 2nd St</td>
-                                    <td>Alberta</td>
-                                    <td>TX</td>
-                                    <td>55555</td>
-                                </tr>
-                                <tr>
-                                    <td>117 W 2nd St</td>
-                                    <td>Ladly</td>
-                                    <td>ME</td>
-                                    <td>55533</td>
-                                </tr>
-                                <tr>
-                                    <td>117 W 2nd St</td>
-                                    <td>Windsor</td>
-                                    <td>NY</td>
-                                    <td>13865</td>
+                                    {% block content %}
+                                    {% endblock %}
                                 </tr>
                             </tbody>
                         </table>
                         </div>
-                    </div>
-                    <div id="Person-5" class="box">
-                        <div class="box-header">
-                            <i class="icon-user icon-large"></i>
-                            <h5>Steve Gunther</h5>
-                        </div>
-                        <div class="box-content box-table">
-                        <table class="table table-hover tablesorter">
-                            <thead>
-                                <tr>
-                                    <th>Casos atendidos</th>
-                                    <th>Puesto</th>
-                                    <th>grado</th>
-                                    <th>Codigo</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>759 Sinking Dr.</td>
-                                    <td>Sacramento</td>
-                                    <td>CA</td>
-                                    <td>98765</td>
-                                </tr>
-                                <tr>
-                                    <td>53 Sinking Dr.</td>
-                                    <td>Sacramento</td>
-                                    <td>CA</td>
-                                    <td>98765</td>
-                                </tr>
-                                <tr>
-                                    <td>1 Beach Rd</td>
-                                    <td>Sacramento</td>
-                                    <td>CA</td>
-                                    <td>98765</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        </div>
-                    </div>
-                    <div id="Person-4" class="box">
-                        <div class="box-header">
-                            <i class="icon-user icon-large"></i>
-                            <h5>Patrick Hartwin</h5>
-                        </div>
-                        <div class="box-content box-table">
-                        <table class="table table-hover tablesorter">
-                            <thead>
-                                <tr>
-                                    <th>Casos atendidos</th>
-                                    <th>Puesto</th>
-                                    <th>Grado</th>
-                                    <th>codigo</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>53 Sinking Dr.</td>
-                                    <td>Sacramento</td>
-                                    <td>CA</td>
-                                    <td>98765</td>
-                                </tr>
-                                <tr>
-                                    <td>1 Beach Rd</td>
-                                    <td>Sacramento</td>
-                                    <td>CA</td>
-                                    <td>98765</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        </div>
-                    </div>
-                      <div id="Person-7" class="box">
-                        <div class="box-header">
-                            <i class="icon-user icon-large"></i>
-                            <h5>Sarah Mathews</h5>
-                        </div>
-                        <div class="box-content box-table">
-                        <table class="table table-hover tablesorter">
-                            <thead>
-                                <tr>
-                                    <th>Street</th>
-                                    <th>City</th>
-                                    <th>State</th>
-                                    <th>Zip Code</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>40 Shorten Ave Apt 33</td>
-                                    <td>Burlington</td>
-                                    <td>VT</td>
-                                    <td>22183</td>
-                                </tr>
-                                <tr>
-                                    <td>81 Lake Dr.</td>
-                                    <td>Burlington</td>
-                                    <td>VT</td>
-                                    <td>22183</td>
-                                </tr>
-                                <tr>
-                                    <td>1772 Lovely Lane</td>
-                                    <td>Plattsburgh</td>
-                                    <td>NY</td>
-                                    <td>22795</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        </div>
-                    </div>               
-                    <div id="Person-2" class="box">
-                        <div class="box-header">
-                            <i class="icon-user icon-large"></i>
-                            <h5>Joe Reed</h5>
-                        </div>
-                    </div>
+                    </div> 
                 </div>
             </div>
             </div>
@@ -273,26 +97,26 @@
         </div>
         <footer class="application-footer">
             <div class="container">
-                <p>Triviador Bolivia</p>
+                <p>Triviador Bolivia Admin</p>
             </div>
         </footer>
-        <script src="js/bootstrap/bootstrap-transition.js" type="text/javascript" ></script>
-        <script src="js/bootstrap/bootstrap-alert.js" type="text/javascript" ></script>
-        <script src="js/bootstrap/bootstrap-modal.js" type="text/javascript" ></script>
-        <script src="js/bootstrap/bootstrap-dropdown.js" type="text/javascript" ></script>
-        <script src="js/bootstrap/bootstrap-scrollspy.js" type="text/javascript" ></script>
-        <script src="js/bootstrap/bootstrap-tab.js" type="text/javascript" ></script>
-        <script src="js/bootstrap/bootstrap-tooltip.js" type="text/javascript" ></script>
-        <script src="js/bootstrap/bootstrap-popover.js" type="text/javascript" ></script>
-        <script src="js/bootstrap/bootstrap-button.js" type="text/javascript" ></script>
-        <script src="js/bootstrap/bootstrap-collapse.js" type="text/javascript" ></script>
-        <script src="js/bootstrap/bootstrap-carousel.js" type="text/javascript" ></script>
-        <script src="js/bootstrap/bootstrap-typeahead.js" type="text/javascript" ></script>
-        <script src="js/bootstrap/bootstrap-affix.js" type="text/javascript" ></script>
-        <script src="js/bootstrap/bootstrap-datepicker.js" type="text/javascript" ></script>
-        <script src="js/jquery/jquery-tablesorter.js" type="text/javascript" ></script>
-        <script src="js/jquery/jquery-chosen.js" type="text/javascript" ></script>
-        <script src="js/jquery/virtual-tour.js" type="text/javascript" ></script>
+        <script src="{{STATIC_URL}}js/bootstrap/bootstrap-transition.js" type="text/javascript" ></script>
+        <script src="{{STATIC_URL}}js/bootstrap/bootstrap-alert.js" type="text/javascript" ></script>
+        <script src="{{STATIC_URL}}js/bootstrap/bootstrap-modal.js" type="text/javascript" ></script>
+        <script src="{{STATIC_URL}}js/bootstrap/bootstrap-dropdown.js" type="text/javascript" ></script>
+        <script src="{{STATIC_URL}}js/bootstrap/bootstrap-scrollspy.js" type="text/javascript" ></script>
+        <script src="{{STATIC_URL}}js/bootstrap/bootstrap-tab.js" type="text/javascript" ></script>
+        <script src="{{STATIC_URL}}js/bootstrap/bootstrap-tooltip.js" type="text/javascript" ></script>
+        <script src="{{STATIC_URL}}js/bootstrap/bootstrap-popover.js" type="text/javascript" ></script>
+        <script src="{{STATIC_URL}}js/bootstrap/bootstrap-button.js" type="text/javascript" ></script>
+        <script src="{{STATIC_URL}}js/bootstrap/bootstrap-collapse.js" type="text/javascript" ></script>
+        <script src="{{STATIC_URL}}js/bootstrap/bootstrap-carousel.js" type="text/javascript" ></script>
+        <script src="{{STATIC_URL}}js/bootstrap/bootstrap-typeahead.js" type="text/javascript" ></script>
+        <script src="{{STATIC_URL}}js/bootstrap/bootstrap-affix.js" type="text/javascript" ></script>
+        <script src="{{STATIC_URL}}js/bootstrap/bootstrap-datepicker.js" type="text/javascript" ></script>
+        <script src="{{STATIC_URL}}js/jquery/jquery-tablesorter.js" type="text/javascript" ></script>
+        <script src="{{STATIC_URL}}js/jquery/jquery-chosen.js" type="text/javascript" ></script>
+        <script src="{{STATIC_URL}}js/jquery/virtual-tour.js" type="text/javascript" ></script>
         <script type="text/javascript">
         $(function() {
             $('#person-list.nav > li > a').click(function(e){
@@ -317,6 +141,5 @@
             });
         });
     </script>
-
 	</body>
 </html>
