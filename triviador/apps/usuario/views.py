@@ -46,10 +46,15 @@ def login_view(request):
 					login(request, acceso)
 					return HttpResponseRedirect("/user/active")
 			else:
-				request.session['cont']=request.session['cont']+1
+				usuario=request.POST['username']
+				if request.session['nombre_usuario']==usuario:
+					request.session['cont']=request.session['cont']+1
+				else:
+					request.session['cont']=0
+				request.session['nombre_usuario']=usuario
 				aux=request.session['cont']				
 				estado=True
-				mensaje="Error en los datos "+str(aux)
+				mensaje="Error en los datos "+str(usuario)
 				if aux>3:
 					formulario2=fcaptcha()
 					datos={'formulario':formulario,'formulario2':formulario2,'estado':estado,'mensaje':mensaje}
@@ -57,6 +62,7 @@ def login_view(request):
 					datos={'formulario':formulario,'estado':estado,'mensaje':mensaje}
 				return render_to_response("loginn.html",datos,context_instance=RequestContext(request))
 	else:
+		request.session['nombre_usuario']=""
 		request.session['cont']=0
 		formulario=AuthenticationForm()
 	return render_to_response("loginn.html", {"formulario":formulario}, context_instance=RequestContext(request))
