@@ -6,6 +6,10 @@ from django.forms.extras.widgets import SelectDateWidget
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import *
+from captcha.fields import ReCaptchaField
+
+class fcaptcha(forms.Form):
+	captcha = ReCaptchaField(attrs={'theme' : 'clean'})
 
 lista_anios = range(2014,1900,-1)
 CHOICES = (('1', 'Hombre',), ('2', 'Mujer',))

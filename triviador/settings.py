@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'bootstrap3',
     'triviador.apps.trivia',
     'triviador.apps.usuario',
+    'captcha',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -101,3 +102,6 @@ STATICFILES_DIRS=(
     os.path.join(BASE_DIR, "triviador/static"),
 )
 MEDIA_ROOT = os.path.join(BASE_DIR, "triviador/media")
+
+RECAPTCHA_PUBLIC_KEY = '6LfAzvwSAAAAAL39KH_Xdd2t2nkDJ--rhAorhtbf'
+RECAPTCHA_PRIVATE_KEY = '6LfAzvwSAAAAABd6hjzru46AbI-7bcSjk1FM8vPY'

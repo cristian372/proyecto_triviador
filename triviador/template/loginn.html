@@ -7,11 +7,16 @@
 			<div class="col-xs-4">			
 			{% load bootstrap3  %}
 				{% if estado %}
-					<div class="alert alert-danger" role="alert">{{titulo}} <span class="glyphicon glyphicon-warning-sign"></span></div>
+					<div class="alert alert-danger" role="alert">{{mensaje}} <span class="glyphicon glyphicon-warning-sign"></span></div>
 				{% endif %}
 				<form action="" method="post" class="form">
 				 {% csrf_token %}
 				 {% bootstrap_form formulario %}
+				 <div class="form-group">
+				 	<div class="col-sm-offset-2 col-sm-10">
+				 		{{formulario2.as_p}}
+				 	</div>
+				 </div>
 				 {% buttons %}
 				 	<button type="submit" class="btn btn-primary">Login</button>
 				 {% endbuttons %}
