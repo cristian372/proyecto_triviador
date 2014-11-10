@@ -13,4 +13,5 @@ urlpatterns = patterns('',
     url(r'^lado_admin/$', registro_admin),
     url(r'^login_admin/$', login_admin),
     url(r'^user/admin/$', perfil_admin),
+    url(r'^permit/$', error_permit),
 )

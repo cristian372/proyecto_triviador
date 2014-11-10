@@ -163,3 +163,20 @@ def perfil_admin(request):
 	u=User.objects.get(username=usuario)
 	a=Admin.objects.get(user=u)
 	return render_to_response("perfil_admin.html",{'a':a},context_instance=RequestContext(request))
+
+def error_permit(request):
+	return render_to_response("error_permit.html",{},RequestContext(request))
+
+def permisos(request):
+	listapermisos=[]
+	lista=request.user.user_permissions.all()
+
+def _adminPermisos(request):
+	permisosGlobale=permisos_s()
+	lista=permisos(request)
+	render_to_response("")
+
+def permisos_s():
+	listagenerica=[]
+	#listagenerica.append({"id":"usuarios.ver_blog"})
+	return listagenerica
