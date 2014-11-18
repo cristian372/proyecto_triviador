@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 class fTemas(ModelForm):
 	class Meta:
 		model=Tema
+		
 class fPreguntas(ModelForm):
 	class Meta:
 		model=Pregunta

@@ -25,3 +25,27 @@ def pagina_pregunta(request):
 		if(form.is_valid()):
 			form.save()
 	return render_to_response("preguntas.html",{"preguntas":fPreguntas()},RequestContext(request))
+
+def modificar_pregunta(request,id):
+	pregunta=Pregunta.objects.get(id=int(id))
+	if request.method=="POST":
+			formulario=fPreguntas(request.POST)
+			if formulario.is_valid():
+				formulario.save()
+				return HttpResponseRedirect("/pregunta/perfil/")
+	else:
+		formulario=fPreguntas(instance=pregunta)
+	return render_to_response("modificar_pregunta.html",{"preguntas":fPreguntas()},RequestContext(request))
+
+def eliminar_pregunta(request,id):
+	pregunta=Pregunta.objects.get(id=int(id))
+	pregunta.delete()
+	return render_to_response("listar_pregunta.html",{},context_instance=RequestContext(request))
+
+def listar_pregunta(request):
+	pregunta=Pregunta.objects.all()
+	return render_to_response("listar_pregunta.html",{'pregunta':pregunta},context_instance=RequestContext(request))
+
+def pregunta_ver(request,id):
+	pregunta=Pregunta.objects.get(id=int(id))
+	return render_to_response("pregunta_ver.html",{'pregunta':pregunta},context_instance=RequestContext(request))
