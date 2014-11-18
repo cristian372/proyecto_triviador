@@ -1,13 +1,14 @@
-{% extends  "perfil.html" %}
+{% extends  "manipulacion_p.html" %}
 
 {% block content %}
 	<div class=container"">
 		<div class="row">
 			<div class="col-xs-12">
 				{% load bootstrap3  %}
-				<h3>Nombre_Completo : {{pregunta.pregunta}}</h3><br>         
+				<h3>Pregunta : {{pregunta.pregunta}}</h3><br>         
             	<div class="action">
 			            <a class="btn btn-default" href="/perfil/modificar/{{pregunta.id}}/">Modificar</a>
+			            <a class="btn btn-default" href="/perfil/eliminar/{{pregunta.id}}/">Eliminar</a>
 			    </div>
 			</div>
 		</div>

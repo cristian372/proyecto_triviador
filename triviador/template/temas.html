@@ -1,8 +1,18 @@
-{%extends "control.html"%}
-{%block content %}
-	<form action="" method="post">
-		{{temas.as_ul}}
-		{% csrf_token %}
-		<input type="submit" value="Enviar">
-	</form>
-{%endblock%}
+{% extends  "manipulacion_p.html" %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-5">
+				{% load bootstrap3  %}
+				<form action="" method="post" class="form">
+				 {% csrf_token %}
+				 {% bootstrap_form temas %}
+				 {% buttons %}
+				 	<button type="submit" class="btn btn-primary">Crear</button>
+				 {% endbuttons %}
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

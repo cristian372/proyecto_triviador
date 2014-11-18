@@ -9,4 +9,5 @@ urlpatterns = patterns('',
     url(r'^perfil/eliminar/(\d+)/$',eliminar_pregunta),
     url(r'^listar_pregunta/$',listar_pregunta),
     url(r'^pregunta/perfil/(\d+)/$',pregunta_ver),
+    url(r'^listar_tema/$',listar_tema),
 )
