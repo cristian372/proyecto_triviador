@@ -74,6 +74,10 @@ def logout_view(request):
 def perfil_view(request):
 	return render_to_response("perfil_u.html",{},context_instance=RequestContext(request))
 
+def perfil_ver(request,id):
+	usuario=User.objects.get(id=int(id))
+	return render_to_response("perfil_ver.html",{'usuario':usuario},context_instance=RequestContext(request))
+
 def user_active_view(request):
 	if request.user.is_authenticated():
 		usuario=request.user

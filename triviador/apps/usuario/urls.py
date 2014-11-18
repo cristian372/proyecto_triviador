@@ -14,4 +14,5 @@ urlpatterns = patterns('',
     url(r'^login_admin/$', login_admin),
     url(r'^user/admin/$', perfil_admin),
     url(r'^permit/$', error_permit),
+    url(r'^usuario/perfil/(\d+)/$',perfil_ver),
 )

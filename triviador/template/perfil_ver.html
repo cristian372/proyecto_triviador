@@ -1,0 +1,18 @@
+{% extends  "perfil.html" %}
+{% block content %}
+	<div class=container"">
+		<div class="row">
+			<div class="col-xs-12">
+				{% load bootstrap3  %}
+				<h3>Pregunta : {{usuario.get_full_name }}</h3><br>
+				<h3>Nick : {{usuario.username}}</h3><br>
+				<h3>Ciudad : {{usuario.perfil.ciudad}}</h3><br>
+				<h3>Email : {{usuario.email}}</h3>
+				<div class="action">
+			            <a class="btn btn-default" href="/perfil/modificar//">Banear</a>
+			            <a class="btn btn-default" href="/perfil/eliminar/">Eliminar</a>
+			    </div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

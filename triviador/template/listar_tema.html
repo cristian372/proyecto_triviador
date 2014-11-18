@@ -1,0 +1,12 @@
+{% extends "base_T.html" %}
+{% block content %}
+        <div class="contenedor">
+            <h2>Lista de Temas</h2>
+            </ul>
+            <ul>
+                {% for i in tema %}
+                    <li><a href="/pregunta/perfil/{{i.id}}/">{{ i.Tema }}</a> </li>
+                {% endfor %}
+            </ul>
+        </div>
+{% endblock %}
