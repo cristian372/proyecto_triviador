@@ -14,3 +14,5 @@ class Pregunta(models.Model):
 	respuesta=models.CharField(max_length=200, null=False)
 	puntaje=models.IntegerField(null=True)
 	fecha=models.DateField(auto_now=True)
+	def __str__(self):
+		return self.Tema
