@@ -31,13 +31,13 @@ def pagina_pregunta(request):
 def modificar_pregunta(request,id):
 	pregunta=Pregunta.objects.get(id=int(id))
 	if request.method=="POST":
-			formulario=fPreguntas(request.POST, instance=pregunta)
+			formulario=fMPreguntas(request.POST, instance=pregunta)
 			if formulario.is_valid():
 				formulario.save()
-				formulario=fPreguntas()
+				formulario=fMPreguntas()
 				return render_to_response("modificar_pregunta.html",{"preguntas":formulario},context_instance=RequestContext(request))
 	else:
-		formulario=fPreguntas(instance=pregunta)
+		formulario=fMPreguntas(instance=pregunta)
 	return render_to_response("modificar_pregunta.html",{"preguntas":formulario},context_instance=RequestContext(request))
 
 

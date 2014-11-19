@@ -13,4 +13,8 @@ class fTemas(ModelForm):
 class fPreguntas(ModelForm):
 	class Meta:
 		model=Pregunta
+
+class fMPreguntas(ModelForm):
+	class Meta:
+		model=Pregunta
 		exclude=['Tema']
