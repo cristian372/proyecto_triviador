@@ -6,6 +6,7 @@ from .models import *
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
+from django.contrib.sessions.backends.db import SessionStore
 # Create your views here.
 
 def registro_view(request):
@@ -34,12 +35,18 @@ def login_view(request):
 				datos={'formulario':formulario,'formulario2':formulario2}
 				return render_to_response("loginn.html",datos,context_instance=RequestContext(request))
 		if formulario.is_valid:
-			usuario=request.POST['username']
-			contrasena=request.POST['password']
+			usuario=request.POST["username"]
+			contrasena=request.POST["password"]
 			acceso=authenticate(username=usuario, password=contrasena)
 			if acceso is not None:
 				if acceso.is_active:
 					login(request, acceso)
+					p=SessionStore()
+					p["name"]=usuario
+					p["estado"]="conectado"
+					p.save()
+					request.session["idkey"]=p.session_key
+					request.session["name"]=usuario
 					del request.session['cont']
 					return HttpResponseRedirect("/user/perfil")
 				else:
@@ -67,7 +74,15 @@ def login_view(request):
 		formulario=AuthenticationForm()
 	return render_to_response("loginn.html", {"formulario":formulario}, context_instance=RequestContext(request))
 
+def jugar(request):
+	idsession=request.session['idkey']
+	return HttpResponseRedirect("http://localhost:3002/juegos/"+idsession)
+
 def logout_view(request):
+	p=SessionStore(session_key=request.session['idkey'])
+	p["estado"]="deconectado"
+	p["name"]=""
+	p.save()
 	logout(request)
 	return HttpResponseRedirect("/")
 
@@ -116,8 +131,8 @@ def modificar_perfil(request):
 		return HttpResponseRedirect("/login/")
 
 
-def jugar_view(request):
-	return render_to_response("calendar.html", context_instance=RequestContext(request))
+#def jugar_view(request):
+#	return render_to_response("calendar.html", context_instance=RequestContext(request))
 
 def listar_usuario(request):
 	usuarios=User.objects.all()
