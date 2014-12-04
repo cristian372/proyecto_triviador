@@ -27,7 +27,7 @@ def registro_view(request):
 def login_view(request):
 	if request.method=="POST":
 		formulario=AuthenticationForm(request.POST)
-		if request.session['cont']>3:
+		if request.session['cont']>2:
 			formulario2=fcaptcha(request.POST)
 			if formulario2.is_valid():
 				pass
@@ -47,7 +47,7 @@ def login_view(request):
 					p.save()
 					request.session["idkey"]=p.session_key
 					request.session["name"]=usuario
-					del request.session['cont']
+					request.session['cont'] = 0
 					return HttpResponseRedirect("/user/perfil")
 				else:
 					login(request, acceso)

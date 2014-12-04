@@ -5,7 +5,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'triviador.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-
+    url ( '' , include ( 'social.apps.django_app.urls' , namespace = 'social' )),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('triviador.apps.trivia.urls')),
     url(r'^', include('triviador.apps.usuario.urls')),
