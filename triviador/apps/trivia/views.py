@@ -14,36 +14,54 @@ def indice(request):
 
 def pagina_tema(request):
 	if request.method=="POST":
-		form=fTemas(request.POST)
-		if(form.is_valid()):
-			form.save()
+		formulario=ftema(request.POST)
+		if formulario.is_valid():
+			formulario.save()
 			return HttpResponseRedirect("/listar_tema/")
-	return render_to_response("temas.html",{"temas":fTemas()},RequestContext(request))
+	return render_to_response("temas.html",{"temas":ftema()},RequestContext(request))
 
 def pagina_pregunta(request):
 	if request.method=="POST":
-		form=fPreguntas(request.POST)
-		if(form.is_valid()):
-			form.save()
+		formulario=fpregunta(request.POST)
+		formulario2=frespuesta(request.POST)
+		if formulario.is_valid() and formulario2.is_valid():
+			pregunta=formulario.save(commit=False)
+			pregunta.tema=Tema
+			pregunta.save()
+			respuesta=formulario2.save(commit=False)
+			respuesta.pregunta=pregunta
+			respuesta.save()
+			formulario=fpregunta()
 			return HttpResponseRedirect("/listar_pregunta/")
-	return render_to_response("preguntas.html",{"preguntas":fPreguntas()},RequestContext(request))
+	else:
+		formulario=fpregunta()
+		formulario2=frespuesta()
+	datos={'formulario':formulario,'formulario2':formulario2}
+	return render_to_response("preguntas.html",datos,context_instance=RequestContext(request))
 
 def modificar_pregunta(request,id):
 	pregunta=Pregunta.objects.get(id=int(id))
+	respuesta=Respuesta.objects.get(pregunta=pregunta)
 	if request.method=="POST":
-			formulario=fMPreguntas(request.POST, instance=pregunta)
-			if formulario.is_valid():
-				formulario.save()
-				formulario=fMPreguntas()
-				return render_to_response("modificar_pregunta.html",{"preguntas":formulario},context_instance=RequestContext(request))
+		formulario=fpregunta(request.POST,instance=pregunta)
+		formulario2=frespuesta(request.POST,instance=respuesta)
+		if formulario.is_valid() and formulario2.is_valid():
+			formulario.save()
+			formulario2.save()
+			datos={'formulario':formulario,'formulario2':formulario2}
+			return render_to_response("modificar_pregunta.html",datos,context_instance=RequestContext(request))
 	else:
-		formulario=fMPreguntas(instance=pregunta)
-	return render_to_response("modificar_pregunta.html",{"preguntas":formulario},context_instance=RequestContext(request))
-
+		formulario=fpregunta(instance=pregunta)
+		formulario2=frespuesta(instance=respuesta)
+	datos={'formulario':formulario,'formulario2':formulario2}
+	return render_to_response("modificar_pregunta.html",datos,context_instance=RequestContext(request))
 
 def eliminar_pregunta(request,id):
 	pregunta=Pregunta.objects.get(id=int(id))
+	id=pregunta.Tema.id
+	respuesta=Respuesta.objects.get(pregunta=pregunta)
 	pregunta.delete()
+	respuesta.delete()
 	return HttpResponseRedirect("/listar_pregunta/")
 
 def listar_pregunta(request):

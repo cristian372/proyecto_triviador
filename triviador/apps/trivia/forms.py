@@ -6,15 +6,16 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 
-class fTemas(ModelForm):
+class ftema(ModelForm):
 	class Meta:
 		model=Tema
 
-class fPreguntas(ModelForm):
+class fpregunta(ModelForm):
 	class Meta:
 		model=Pregunta
+		exclude=['tema']
 
-class fMPreguntas(ModelForm):
+class frespuesta(ModelForm):
 	class Meta:
-		model=Pregunta
-		exclude=['Tema']
+		model=Respuesta
+		exclude=['pregunta']
